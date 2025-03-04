@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden"
+      className="hero-shine-effect relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden"
     >
       {/* Hero content container */}
       <div className="max-w-7xl w-full mx-auto flex flex-col justify-center py-20 mt-16">
@@ -89,8 +89,12 @@ const Hero = () => {
         </a>
       </div>
       
-      {/* Background subtle patterns/effects could be added here */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.12),rgba(255,255,255,0))]"></div>
+      {/* Animated background elements */}
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))]"></div>
+      
+      {/* Animated floating circles */}
+      <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-blue-200/10 blur-3xl animate-float opacity-40 dark:bg-indigo-900/20"></div>
+      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-purple-200/10 blur-3xl animate-float opacity-30 animate-delay-300 dark:bg-purple-900/20"></div>
     </section>
   );
 };

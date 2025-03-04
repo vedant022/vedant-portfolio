@@ -67,7 +67,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={index}
-              className={`group relative overflow-hidden rounded-xl bg-white shadow-md hover:shadow-lg transition-all duration-300 transform ${sectionInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              className={`animated-card group relative overflow-hidden rounded-xl bg-white/80 dark:bg-white/5 shadow-md hover:shadow-lg transition-all duration-500 transform ${sectionInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Project image */}
@@ -81,7 +81,7 @@ const Projects = () => {
               </div>
               
               {/* Project details */}
-              <div className="p-6">
+              <div className="p-6 backdrop-blur-sm bg-white/70 dark:bg-black/30">
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
@@ -94,7 +94,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span 
                       key={tagIndex} 
-                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary"
+                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary dark:bg-primary/20"
                     >
                       {tag}
                     </span>
