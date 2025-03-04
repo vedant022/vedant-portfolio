@@ -15,8 +15,8 @@ const CustomCursor = () => {
       const isClickable = 
         target.tagName === 'A' || 
         target.tagName === 'BUTTON' || 
-        target.closest('a') || 
-        target.closest('button') ||
+        target.closest('a') !== null || 
+        target.closest('button') !== null ||
         window.getComputedStyle(target).cursor === 'pointer';
       
       setIsPointer(isClickable);
