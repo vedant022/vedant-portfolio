@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import CVButton from './CVButton';
+import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -35,7 +36,7 @@ const Navbar = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out px-6 md:px-12 ${
         scrolled 
-          ? 'py-4 bg-white/80 backdrop-blur-lg shadow-sm' 
+          ? 'py-4 bg-white/80 dark:bg-portfolio-text/80 backdrop-blur-lg shadow-sm' 
           : 'py-6 bg-transparent'
       }`}
     >
@@ -43,7 +44,7 @@ const Navbar = () => {
         {/* Logo */}
         <a 
           href="#home" 
-          className="text-xl font-medium text-foreground transition-all hover:opacity-80"
+          className="text-xl font-medium text-foreground transition-all hover:opacity-80 dark:text-white"
         >
           <span className="font-bold">Vedant</span> Agrawal
         </a>
@@ -54,37 +55,41 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-base font-medium text-foreground/80 hover-underline transition-colors hover:text-foreground"
+              className="text-base font-medium text-foreground/80 dark:text-white/80 hover-underline transition-colors hover:text-foreground dark:hover:text-white"
             >
               {link.name}
             </a>
           ))}
+          <ThemeToggle />
           <CVButton />
         </nav>
         
         {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-        >
-          {mobileMenuOpen ? (
-            <X className="h-6 w-6 text-foreground" />
-          ) : (
-            <Menu className="h-6 w-6 text-foreground" />
-          )}
-        </button>
+        <div className="md:hidden flex items-center gap-4">
+          <ThemeToggle />
+          <button 
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {mobileMenuOpen ? (
+              <X className="h-6 w-6 text-foreground dark:text-white" />
+            ) : (
+              <Menu className="h-6 w-6 text-foreground dark:text-white" />
+            )}
+          </button>
+        </div>
       </div>
       
       {/* Mobile Navigation Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 glass animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 right-0 glass dark:glass-dark animate-fade-in">
           <div className="py-4 px-6 flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-base font-medium text-foreground py-2"
+                className="text-base font-medium text-foreground dark:text-white py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}

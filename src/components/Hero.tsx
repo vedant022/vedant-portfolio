@@ -21,6 +21,12 @@ const Hero = () => {
     "Flutter Developer"
   ];
   
+  // Define color classes for each text
+  const colorClasses = [
+    "text-gradient-blue",
+    "text-gradient-purple"
+  ];
+  
   return (
     <section 
       id="home" 
@@ -41,7 +47,7 @@ const Hero = () => {
             <span className="relative">
               <TypewriterEffect 
                 texts={typingTexts} 
-                className={`${typingTexts[0] === "Web Developer" ? "text-gradient-blue" : "text-gradient-purple"}`}
+                colorClasses={colorClasses}
               />
             </span>
           </h2>

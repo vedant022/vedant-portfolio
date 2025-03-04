@@ -69,6 +69,11 @@ export default {
         "portfolio-bg": "#FAFAFA",
         "portfolio-text": "#171717",
         "portfolio-light-gray": "#F3F4F6",
+        // Dark mode specific colors
+        "dark-bg-primary": "#1A1A2E",
+        "dark-bg-secondary": "#100720",
+        "dark-purple-accent": "#A020F0",
+        "dark-text": "#F8F8F8",
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -144,6 +149,10 @@ export default {
         'rotate-in': {
           '0%': { transform: 'rotate(-3deg)', opacity: '0' },
           '100%': { transform: 'rotate(0)', opacity: '1' }
+        },
+        'cursor-ping': {
+          '0%': { transform: 'scale(1)', opacity: '1' },
+          '75%, 100%': { transform: 'scale(2)', opacity: '0' }
         }
 			},
 			animation: {
@@ -160,7 +169,8 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
         'blur-in': 'blur-in 0.7s ease-out',
         'scale-in': 'scale-in 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
-        'rotate-in': 'rotate-in 0.6s cubic-bezier(0.16, 1, 0.3, 1)'
+        'rotate-in': 'rotate-in 0.6s cubic-bezier(0.16, 1, 0.3, 1)',
+        'cursor-ping': 'cursor-ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite'
 			},
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

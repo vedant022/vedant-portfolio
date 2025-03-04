@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 
 interface TypewriterEffectProps {
@@ -7,6 +8,7 @@ interface TypewriterEffectProps {
   delayBetweenTexts?: number;
   className?: string;
   cursorClassName?: string;
+  colorClasses?: string[]; // Array of color classes that match the texts array
 }
 
 const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
@@ -15,7 +17,8 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
   deletingSpeed = 50,
   delayBetweenTexts = 2000,
   className = '',
-  cursorClassName = ''
+  cursorClassName = '',
+  colorClasses = [] // Default empty array if no colors provided
 }) => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -78,8 +81,11 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
     };
   }, [displayText, isDeleting, textIndex, texts, typingSpeed, deletingSpeed, delayBetweenTexts, isTypingPaused]);
   
+  // Get the current color class based on the textIndex
+  const currentColorClass = colorClasses[textIndex] || '';
+  
   return (
-    <span className={`inline-flex items-center ${className}`}>
+    <span className={`inline-flex items-center ${className} ${currentColorClass}`}>
       {displayText}
       <span className={`ml-0.5 h-full w-[2px] bg-current animate-blink ${cursorClassName}`}></span>
     </span>
