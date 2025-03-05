@@ -17,14 +17,14 @@ const Hero = () => {
   
   // Define the texts for the typewriter effect
   const typingTexts = [
-    "Web Developer",
-    "Flutter Developer"
+    "Flutter Developer",
+    "Web Developer"
   ];
   
   // Define color classes for each text
   const colorClasses = [
-    "text-gradient-blue",
-    "text-gradient-purple"
+    "text-gradient-purple",
+    "text-gradient-blue"
   ];
   
   return (
@@ -36,13 +36,13 @@ const Hero = () => {
       <div className="max-w-7xl w-full mx-auto flex flex-col justify-center py-20 mt-16">
         {/* Text content with animations */}
         <div className={`transition-all duration-1000 ease-out transform ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-          <h3 className="text-xl md:text-2xl font-medium text-foreground/70 mb-4 animate-fade-in">
+          <h3 className="text-xl md:text-2xl font-medium text-foreground/70 dark:text-white/70 mb-4 animate-fade-in">
             Hello, I am
           </h3>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in dark:text-white">
             Vedant Agrawal
           </h1>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold mt-2 md:mt-4 animate-fade-in">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold mt-2 md:mt-4 animate-fade-in dark:text-white">
             a passionate{' '}
             <span className="relative">
               <TypewriterEffect 
@@ -56,7 +56,7 @@ const Hero = () => {
           </h2>
           
           {/* Description */}
-          <p className="max-w-2xl mt-6 text-lg md:text-xl text-foreground/70 animate-fade-in animate-delay-200">
+          <p className="max-w-2xl mt-6 text-lg md:text-xl text-foreground/70 dark:text-white/70 animate-fade-in animate-delay-200">
             I transform ideas into elegant digital experiences, specializing in creating beautiful, 
             functional websites and mobile applications that solve real-world problems.
           </p>
@@ -94,6 +94,15 @@ const Hero = () => {
       
       {/* Animated background elements */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))]"></div>
+      
+      {/* Floating elements animation */}
+      <div className="floating-elements">
+        <div className="floating-element floating-element-1"></div>
+        <div className="floating-element floating-element-2"></div>
+        <div className="floating-element floating-element-3"></div>
+        <div className="floating-element floating-element-4"></div>
+        <div className="floating-element floating-element-5"></div>
+      </div>
     </section>
   );
 };

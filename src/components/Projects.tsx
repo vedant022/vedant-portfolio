@@ -49,7 +49,7 @@ const Projects = () => {
     <section 
       id="projects" 
       ref={sectionRef}
-      className="py-24 px-6 md:px-12 bg-portfolio-bg dark:bg-transparent relative"
+      className="py-24 px-6 md:px-12 bg-white dark:bg-transparent dark:bg-opacity-5 relative"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section heading */}
@@ -67,7 +67,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={index}
-              className={`group relative overflow-hidden rounded-xl bg-white/80 dark:bg-dark-bg-secondary/50 shadow-md hover:shadow-lg dark:shadow-dark-purple-accent/20 transition-all duration-500 transform ${sectionInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              className={`group relative overflow-hidden rounded-xl bg-white dark:bg-dark-bg-secondary/50 shadow-md hover:shadow-xl dark:shadow-dark-purple-accent/10 hover:dark:shadow-dark-purple-accent/20 transition-all duration-500 transform ${sectionInView ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-95'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Project image */}
@@ -82,7 +82,7 @@ const Projects = () => {
               
               {/* Project details */}
               <div className="p-6 backdrop-blur-sm bg-white/70 dark:bg-black/50">
-                <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
+                <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-primary dark:group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-foreground/70 dark:text-white/70 mb-4">
@@ -107,7 +107,7 @@ const Projects = () => {
                     href={project.demoUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm font-medium text-foreground dark:text-white hover:text-primary dark:hover:text-primary-foreground transition-colors hover-underline"
+                    className="flex items-center text-sm font-medium text-foreground dark:text-white hover:text-primary dark:hover:text-primary transition-colors hover-underline"
                   >
                     <ExternalLink size={16} className="mr-1" />
                     Live Demo
@@ -116,16 +116,25 @@ const Projects = () => {
                     href={project.githubUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm font-medium text-foreground dark:text-white hover:text-primary dark:hover:text-primary-foreground transition-colors hover-underline"
+                    className="flex items-center text-sm font-medium text-foreground dark:text-white hover:text-primary dark:hover:text-primary transition-colors hover-underline"
                   >
                     <Github size={16} className="mr-1" />
                     Source Code
                   </a>
                 </div>
               </div>
+              
+              {/* Hover overlay effect */}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-primary/10 dark:to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
             </div>
           ))}
         </div>
+      </div>
+      
+      {/* Floating elements animation */}
+      <div className="floating-elements opacity-30">
+        <div className="floating-element floating-element-3" style={{ left: '85%', top: '15%' }}></div>
+        <div className="floating-element floating-element-5" style={{ left: '10%', top: '70%' }}></div>
       </div>
       
       {/* Background elements */}

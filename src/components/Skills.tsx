@@ -31,7 +31,7 @@ const Skills = () => {
     <section 
       id="skills" 
       ref={sectionRef}
-      className="py-24 px-6 md:px-12 bg-white dark:bg-transparent relative"
+      className="py-24 px-6 md:px-12 bg-white dark:bg-transparent dark:bg-opacity-5 relative"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section heading */}
@@ -108,6 +108,12 @@ const Skills = () => {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Floating elements animation */}
+      <div className="floating-elements opacity-30">
+        <div className="floating-element floating-element-2"></div>
+        <div className="floating-element floating-element-4" style={{ left: '75%', top: '25%' }}></div>
       </div>
       
       {/* Background element */}

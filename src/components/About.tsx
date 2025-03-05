@@ -36,7 +36,7 @@ const About = () => {
     <section 
       id="about" 
       ref={sectionRef}
-      className="py-24 px-6 md:px-12 bg-portfolio-light-gray dark:bg-transparent relative overflow-hidden"
+      className="py-24 px-6 md:px-12 bg-white dark:bg-transparent dark:bg-opacity-5 relative overflow-hidden"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section heading */}
@@ -81,6 +81,12 @@ const About = () => {
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Floating elements animation */}
+      <div className="floating-elements">
+        <div className="floating-element floating-element-1"></div>
+        <div className="floating-element floating-element-3" style={{ left: '70%', top: '60%' }}></div>
       </div>
       
       {/* Background pattern */}
