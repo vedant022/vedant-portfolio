@@ -67,7 +67,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={index}
-              className={`group relative overflow-hidden rounded-xl bg-white/80 dark:bg-white/5 shadow-md hover:shadow-lg dark:shadow-dark-purple-accent/20 transition-all duration-500 transform ${sectionInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              className={`group relative overflow-hidden rounded-xl bg-white/80 dark:bg-dark-bg-secondary/50 shadow-md hover:shadow-lg dark:shadow-dark-purple-accent/20 transition-all duration-500 transform ${sectionInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Project image */}
@@ -82,7 +82,7 @@ const Projects = () => {
               
               {/* Project details */}
               <div className="p-6 backdrop-blur-sm bg-white/70 dark:bg-black/50">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary dark:text-white dark:group-hover:text-primary-foreground transition-colors">
+                <h3 className="text-xl font-semibold mb-2 dark:text-white group-hover:text-primary dark:group-hover:text-primary-foreground transition-colors">
                   {project.title}
                 </h3>
                 <p className="text-foreground/70 dark:text-white/70 mb-4">
@@ -94,7 +94,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span 
                       key={tagIndex} 
-                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-foreground"
+                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-white"
                     >
                       {tag}
                     </span>
