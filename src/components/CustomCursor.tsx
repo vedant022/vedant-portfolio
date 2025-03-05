@@ -50,47 +50,53 @@ const CustomCursor = () => {
   
   return (
     <>
-      {/* Main cursor */}
+      {/* Main cursor dot */}
       <div 
-        className={`fixed pointer-events-none z-[999] rounded-full mix-blend-difference transition-transform duration-150 ease-out ${
-          isPointer ? 'scale-150' : 'scale-100'
-        } ${isClicking ? 'scale-75' : ''} ${isVisible ? 'opacity-100' : 'opacity-0'}`}
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          width: '12px',
-          height: '12px',
-          backgroundColor: 'white',
-          transform: `translate(-50%, -50%) ${isPointer ? 'scale(1.5)' : 'scale(1)'} ${isClicking ? 'scale(0.75)' : ''}`,
-          transition: 'transform 0.15s ease-out, opacity 0.3s ease-out',
-        }}
-      />
-      
-      {/* Cursor trail */}
-      <div 
-        className={`fixed pointer-events-none z-[998] rounded-full bg-white mix-blend-difference transition-all duration-500 ease-out ${
-          isVisible ? 'opacity-50' : 'opacity-0'
-        } ${isPointer ? 'w-16 h-16' : 'w-10 h-10'} ${isClicking ? 'scale-75 opacity-70' : ''}`}
-        style={{
-          left: `${position.x}px`,
-          top: `${position.y}px`,
-          transform: 'translate(-50%, -50%)',
-          transition: 'width 0.3s, height 0.3s, opacity 0.3s, transform 0.15s',
-          backdropFilter: 'blur(2px)',
-        }}
-      />
-      
-      {/* Additional pulse effect */}
-      <div 
-        className={`fixed pointer-events-none z-[997] rounded-full bg-white/10 mix-blend-difference transition-all duration-700 ease-out animate-cursor-ping ${
-          isVisible && isPointer ? 'opacity-30' : 'opacity-0'
+        className={`fixed pointer-events-none z-[999] rounded-full mix-blend-difference ${
+          isVisible ? 'opacity-100' : 'opacity-0'
         }`}
         style={{
           left: `${position.x}px`,
           top: `${position.y}px`,
-          width: '50px',
-          height: '50px',
+          width: '8px',
+          height: '8px',
+          backgroundColor: 'white',
+          transform: `translate(-50%, -50%) ${isPointer ? 'scale(1.5)' : 'scale(1)'} ${isClicking ? 'scale(0.75)' : ''}`,
+          transition: 'transform 0.15s ease-out, opacity 0.3s ease-out',
+          boxShadow: '0 0 10px rgba(255, 255, 255, 0.7)'
+        }}
+      />
+      
+      {/* Cursor outer ring */}
+      <div 
+        className={`fixed pointer-events-none z-[998] rounded-full mix-blend-difference transition-all duration-300 ease-out ${
+          isVisible ? 'opacity-70' : 'opacity-0'
+        }`}
+        style={{
+          left: `${position.x}px`,
+          top: `${position.y}px`,
+          width: isPointer ? '40px' : '30px',
+          height: isPointer ? '40px' : '30px',
+          border: '1.5px solid white',
+          transform: `translate(-50%, -50%) ${isClicking ? 'scale(0.9)' : 'scale(1)'}`,
+          transition: 'width 0.3s, height 0.3s, opacity 0.3s, transform 0.15s',
+          boxShadow: isPointer ? '0 0 15px rgba(255, 255, 255, 0.4)' : '0 0 10px rgba(255, 255, 255, 0.2)'
+        }}
+      />
+      
+      {/* Animated pulse effect */}
+      <div 
+        className={`fixed pointer-events-none z-[997] rounded-full bg-white/5 transition-all duration-700 ease-out ${
+          isVisible && isPointer ? 'opacity-30 scale-100' : 'opacity-0 scale-50'
+        }`}
+        style={{
+          left: `${position.x}px`,
+          top: `${position.y}px`,
+          width: '60px',
+          height: '60px',
           transform: 'translate(-50%, -50%)',
+          animation: isPointer ? 'cursorPulse 1.5s infinite ease-in-out' : 'none',
+          backdropFilter: 'blur(4px)'
         }}
       />
     </>

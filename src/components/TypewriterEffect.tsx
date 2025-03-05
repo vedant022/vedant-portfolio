@@ -38,6 +38,8 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
   }, []);
   
   useEffect(() => {
+    if (texts.length === 0) return;
+    
     if (isTypingPaused) return;
     
     // Calculate the current text from the array
@@ -87,7 +89,7 @@ const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
   return (
     <span className={`inline-flex items-center ${className} ${currentColorClass}`}>
       {displayText}
-      <span className={`ml-0.5 h-full w-[2px] bg-current animate-blink ${cursorClassName}`}></span>
+      <span className={`ml-0.5 h-5 w-[2px] bg-current animate-blink ${cursorClassName}`}></span>
     </span>
   );
 };

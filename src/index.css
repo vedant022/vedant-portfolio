@@ -180,13 +180,29 @@
     }
   }
 
-  /* Add a shine effect to the Hero section */
-  .hero-shine-effect {
+  /* Cursor pulse animation */
+  @keyframes cursorPulse {
+    0% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+    50% {
+      opacity: 0.5;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(0.8);
+    }
+  }
+
+  /* Hero section */
+  .hero-section {
     position: relative;
     overflow: hidden;
   }
 
-  .hero-shine-effect::after {
+  .hero-section::after {
     content: "";
     position: absolute;
     top: -50%;
@@ -205,6 +221,17 @@
     pointer-events: none;
     z-index: 1;
     animation: heroShine 8s ease-in-out infinite;
+  }
+
+  .dark .hero-section::after {
+    background: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 40%,
+      rgba(160, 32, 240, 0.2) 50%,
+      rgba(255, 255, 255, 0) 60%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 
   @keyframes heroShine {
@@ -234,6 +261,14 @@
   
   .text-gradient-purple {
     @apply bg-gradient-to-r from-purple-600 to-purple-400 bg-clip-text text-transparent;
+  }
+
+  .dark .text-gradient-blue {
+    @apply bg-gradient-to-r from-blue-400 to-blue-300 bg-clip-text text-transparent;
+  }
+  
+  .dark .text-gradient-purple {
+    @apply bg-gradient-to-r from-purple-400 to-purple-300 bg-clip-text text-transparent;
   }
   
   /* Animation styles */
@@ -290,6 +325,10 @@
     transform: perspective(1000px);
   }
 
+  .dark .animated-card {
+    background: linear-gradient(135deg, rgba(160,32,240,0.1) 0%, rgba(100,20,150,0.05) 100%);
+  }
+
   .animated-card::before {
     content: "";
     position: absolute;
@@ -299,6 +338,10 @@
     transition: opacity 0.5s;
     z-index: 1;
     pointer-events: none;
+  }
+
+  .dark .animated-card::before {
+    background: linear-gradient(130deg, transparent 20%, rgba(160,32,240,0.2) 50%, transparent 80%);
   }
 
   .animated-card:hover::before {

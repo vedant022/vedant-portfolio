@@ -49,14 +49,14 @@ const Projects = () => {
     <section 
       id="projects" 
       ref={sectionRef}
-      className="py-24 px-6 md:px-12 bg-portfolio-bg relative"
+      className="py-24 px-6 md:px-12 bg-portfolio-bg dark:bg-transparent relative"
     >
       <div className="max-w-7xl mx-auto">
         {/* Section heading */}
         <div className={`transition-all duration-700 transform ${sectionInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">My Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white">My Projects</h2>
           <div className="h-1 w-20 bg-primary rounded-full mb-6"></div>
-          <p className="max-w-2xl text-lg text-foreground/70 mb-12">
+          <p className="max-w-2xl text-lg text-foreground/70 dark:text-white/70 mb-12">
             Here are some of my recent projects that showcase my skills and passion for building
             functional and beautiful applications.
           </p>
@@ -67,7 +67,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div 
               key={index}
-              className={`animated-card group relative overflow-hidden rounded-xl bg-white/80 dark:bg-white/5 shadow-md hover:shadow-lg transition-all duration-500 transform ${sectionInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+              className={`group relative overflow-hidden rounded-xl bg-white/80 dark:bg-white/5 shadow-md hover:shadow-lg dark:shadow-dark-purple-accent/20 transition-all duration-500 transform ${sectionInView ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               {/* Project image */}
@@ -81,11 +81,11 @@ const Projects = () => {
               </div>
               
               {/* Project details */}
-              <div className="p-6 backdrop-blur-sm bg-white/70 dark:bg-black/30">
-                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
+              <div className="p-6 backdrop-blur-sm bg-white/70 dark:bg-black/50">
+                <h3 className="text-xl font-semibold mb-2 group-hover:text-primary dark:text-white dark:group-hover:text-primary-foreground transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-foreground/70 mb-4">
+                <p className="text-foreground/70 dark:text-white/70 mb-4">
                   {project.description}
                 </p>
                 
@@ -94,7 +94,7 @@ const Projects = () => {
                   {project.tags.map((tag, tagIndex) => (
                     <span 
                       key={tagIndex} 
-                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary dark:bg-primary/20"
+                      className="text-xs font-medium px-2.5 py-1 rounded-full bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary-foreground"
                     >
                       {tag}
                     </span>
@@ -107,7 +107,7 @@ const Projects = () => {
                     href={project.demoUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors hover-underline"
+                    className="flex items-center text-sm font-medium text-foreground dark:text-white hover:text-primary dark:hover:text-primary-foreground transition-colors hover-underline"
                   >
                     <ExternalLink size={16} className="mr-1" />
                     Live Demo
@@ -116,7 +116,7 @@ const Projects = () => {
                     href={project.githubUrl} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center text-sm font-medium text-foreground hover:text-primary transition-colors hover-underline"
+                    className="flex items-center text-sm font-medium text-foreground dark:text-white hover:text-primary dark:hover:text-primary-foreground transition-colors hover-underline"
                   >
                     <Github size={16} className="mr-1" />
                     Source Code
@@ -129,7 +129,7 @@ const Projects = () => {
       </div>
       
       {/* Background elements */}
-      <div className="absolute top-0 left-0 -z-10 w-full h-full bg-[linear-gradient(to_bottom_right,rgba(120,119,198,0.05),rgba(255,255,255,0))]"></div>
+      <div className="absolute top-0 left-0 -z-10 w-full h-full bg-[linear-gradient(to_bottom_right,rgba(120,119,198,0.05),rgba(255,255,255,0))] dark:bg-[linear-gradient(to_bottom_right,rgba(160,32,240,0.08),rgba(20,10,30,0))]"></div>
     </section>
   );
 };

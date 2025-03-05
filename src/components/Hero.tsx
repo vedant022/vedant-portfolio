@@ -30,7 +30,7 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="hero-shine-effect relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden"
+      className="hero-section relative min-h-screen flex items-center justify-center px-6 md:px-12 overflow-hidden"
     >
       {/* Hero content container */}
       <div className="max-w-7xl w-full mx-auto flex flex-col justify-center py-20 mt-16">
@@ -48,6 +48,9 @@ const Hero = () => {
               <TypewriterEffect 
                 texts={typingTexts} 
                 colorClasses={colorClasses}
+                typingSpeed={80}
+                deletingSpeed={40}
+                delayBetweenTexts={3000}
               />
             </span>
           </h2>
@@ -62,19 +65,19 @@ const Hero = () => {
           <div className="mt-8 md:mt-10 flex flex-wrap gap-4 animate-fade-in animate-delay-300">
             <a 
               href="#projects" 
-              className="group relative overflow-hidden rounded-full bg-primary px-6 py-3 transition-all duration-300 ease-out"
+              className="group relative overflow-hidden rounded-full bg-primary px-6 py-3 text-primary-foreground font-medium transition-all duration-300 ease-out hover:shadow-lg hover:shadow-primary/20"
             >
-              <span className="absolute inset-0 bg-accent/80 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"></span>
-              <span className="relative flex items-center justify-center text-primary-foreground font-medium">
+              <span className="absolute inset-0 bg-accent/90 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"></span>
+              <span className="relative flex items-center justify-center z-10">
                 View My Work
               </span>
             </a>
             <a 
               href="#contact" 
-              className="group relative overflow-hidden rounded-full bg-white px-6 py-3 transition-all duration-300 ease-out border border-black/10 shadow-sm"
+              className="group relative overflow-hidden rounded-full bg-white dark:bg-white/10 dark:text-white px-6 py-3 transition-all duration-300 ease-out border border-black/10 dark:border-white/10 hover:shadow-lg"
             >
-              <span className="absolute inset-0 bg-primary/5 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"></span>
-              <span className="relative flex items-center justify-center text-foreground font-medium">
+              <span className="absolute inset-0 bg-primary/10 dark:bg-white/5 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0"></span>
+              <span className="relative flex items-center justify-center text-foreground dark:text-white font-medium z-10">
                 Contact Me
               </span>
             </a>
@@ -85,16 +88,12 @@ const Hero = () => {
       {/* Scroll indicator */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <a href="#about" aria-label="Scroll to About section">
-          <ChevronDown className="h-8 w-8 text-foreground/40" />
+          <ChevronDown className="h-8 w-8 text-foreground/40 dark:text-white/40" />
         </a>
       </div>
       
       {/* Animated background elements */}
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.15),rgba(255,255,255,0))]"></div>
-      
-      {/* Animated floating circles */}
-      <div className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-blue-200/10 blur-3xl animate-float opacity-40 dark:bg-indigo-900/20"></div>
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-purple-200/10 blur-3xl animate-float opacity-30 animate-delay-300 dark:bg-purple-900/20"></div>
     </section>
   );
 };
