@@ -15,7 +15,7 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
   
-  // Define the texts for the typewriter effect
+  // Define the texts for the typewriter effect - ensure both texts are included
   const typingTexts = [
     "Flutter Developer",
     "Web Developer"
@@ -50,7 +50,7 @@ const Hero = () => {
                 colorClasses={colorClasses}
                 typingSpeed={80}
                 deletingSpeed={40}
-                delayBetweenTexts={3000}
+                delayBetweenTexts={2000}
               />
             </span>
           </h2>
