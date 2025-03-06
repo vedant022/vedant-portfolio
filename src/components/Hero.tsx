@@ -65,9 +65,11 @@ const Hero = () => {
             Vedant Agrawal
           </h1>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold mt-2 md:mt-4 animate-fade-in dark:text-white flex flex-wrap items-center">
-            <span>a passionate </span>
-            <span ref={typedElementRef} className="ml-2"></span>
-            <span className="ml-0.5 h-5 w-[2px] bg-current animate-blink"></span>
+            <span>a passionate</span>
+            <span className="mx-4 inline-flex items-center">
+              <span ref={typedElementRef} className="ml-2"></span>
+              <span className="ml-1 h-8 w-[3px] bg-current inline-block animate-blink"></span>
+            </span>
           </h2>
           
           {/* Description */}
