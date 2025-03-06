@@ -1,10 +1,12 @@
 
-import { useEffect, useState } from 'react';
-import TypewriterEffect from './TypewriterEffect';
+import { useEffect, useState, useRef } from 'react';
 import { ChevronDown } from 'lucide-react';
+import Typed from 'typed.js';
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const typedElementRef = useRef<HTMLSpanElement>(null);
+  const typedInstanceRef = useRef<Typed | null>(null);
   
   useEffect(() => {
     // Set visibility after a small delay for animation purposes
@@ -15,17 +17,37 @@ const Hero = () => {
     return () => clearTimeout(timer);
   }, []);
   
-  // Define the texts for the typewriter effect - ensure both texts are included
-  const typingTexts = [
-    "Flutter Developer",
-    "Web Developer"
-  ];
-  
-  // Define color classes for each text
-  const colorClasses = [
-    "text-gradient-purple",
-    "text-gradient-blue"
-  ];
+  // Initialize typed.js when component mounts
+  useEffect(() => {
+    if (typedElementRef.current) {
+      typedInstanceRef.current = new Typed(typedElementRef.current, {
+        strings: ["Flutter Developer", "Web Developer"],
+        typeSpeed: 100,
+        backSpeed: 50,
+        backDelay: 1500,
+        startDelay: 500,
+        loop: true,
+        showCursor: false,
+        onStringTyped: (arrayPos) => {
+          // Add appropriate class based on which string is currently typed
+          if (typedElementRef.current) {
+            if (arrayPos === 0) {
+              typedElementRef.current.className = 'text-gradient-purple';
+            } else {
+              typedElementRef.current.className = 'text-gradient-blue';
+            }
+          }
+        }
+      });
+    }
+    
+    // Cleanup typed instance when component unmounts
+    return () => {
+      if (typedInstanceRef.current) {
+        typedInstanceRef.current.destroy();
+      }
+    };
+  }, []);
   
   return (
     <section 
@@ -42,17 +64,10 @@ const Hero = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in dark:text-white">
             Vedant Agrawal
           </h1>
-          <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold mt-2 md:mt-4 animate-fade-in dark:text-white">
-            a passionate{' '}
-            <span className="relative">
-              <TypewriterEffect 
-                texts={typingTexts} 
-                colorClasses={colorClasses}
-                typingSpeed={80}
-                deletingSpeed={40}
-                delayBetweenTexts={2000}
-              />
-            </span>
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold mt-2 md:mt-4 animate-fade-in dark:text-white flex flex-wrap items-center">
+            <span>a passionate </span>
+            <span ref={typedElementRef} className="ml-2"></span>
+            <span className="ml-0.5 h-5 w-[2px] bg-current animate-blink"></span>
           </h2>
           
           {/* Description */}
