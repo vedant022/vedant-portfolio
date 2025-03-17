@@ -6,21 +6,14 @@ import { ExternalLink, Github } from 'lucide-react';
 const Projects = () => {
   const [projects] = useState([
     {
-      title: 'Mental Health Support App',
-      description: 'A mobile application that provides emergency notifications and mental health resources to users in need.',
+      title: 'Mental Health Support App landing page ',
+      description: ' the landing page for a mobile application that provides emergency notifications and mental health resources to users in need.',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       tags: ['Flutter', 'Firebase', 'Notifications API'],
       demoUrl: '#',
       githubUrl: '#'
     },
-    {
-      title: 'Call Reminder & Notes App',
-      description: 'A productivity application that helps users manage their calls and take notes efficiently.',
-      image: 'https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['React Native', 'Redux', 'Local Storage'],
-      demoUrl: '#',
-      githubUrl: '#'
-    },
+    
     {
       title: 'E-Commerce Dashboard',
       description: 'An interactive dashboard for managing products, orders, and customers in an e-commerce platform.',
@@ -34,6 +27,14 @@ const Projects = () => {
       description: 'A responsive portfolio website built with modern web technologies.',
       image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       tags: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
+      demoUrl: '#',
+      githubUrl: '#'
+    }
+     {
+      title: 'notes Website',
+      description: 'A responsive note taking website which advanced features',
+      image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      tags: ['Next.js', 'Tailwind CSS', 'react', 'superauth"],
       demoUrl: '#',
       githubUrl: '#'
     }
