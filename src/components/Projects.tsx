@@ -29,12 +29,12 @@ const Projects = () => {
       tags: ['Next.js', 'Tailwind CSS', 'Framer Motion'],
       demoUrl: '#',
       githubUrl: '#'
-    }
-     {
-      title: 'notes Website',
-      description: 'A responsive note taking website which advanced features',
+    },
+    {
+      title: 'Notes Website',
+      description: 'A responsive note taking website with advanced features',
       image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Next.js', 'Tailwind CSS', 'react', 'superauth"],
+      tags: ['Next.js', 'Tailwind CSS', 'React', 'SuperAuth'],
       demoUrl: '#',
       githubUrl: '#'
     }
