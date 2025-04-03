@@ -8,54 +8,62 @@ interface TypewriterEffectProps {
   className?: string;
 }
 
-const TypewriterEffect: React.FC<TypewriterEffectProps> = ({
-  texts,
-  typingSpeed = 50,
+const TypewriterEffect = ({ 
+  texts, 
+  typingSpeed = 100, 
   delayBetweenTexts = 2000,
-  className = '',
-}) => {
-  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  className = '' 
+}: TypewriterEffectProps) => {
   const [currentText, setCurrentText] = useState('');
   const [isTyping, setIsTyping] = useState(true);
-  
-  // Effect to handle the typing animation
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
-    const text = texts[currentTextIndex];
+    if (!texts.length) return;
+    
+    const currentTextFullString = texts[textIndex];
     
     if (isTyping) {
-      // Typing text
-      if (currentText.length < text.length) {
-        const timeout = setTimeout(() => {
-          setCurrentText(text.substring(0, currentText.length + 1));
+      // Typing forward
+      if (charIndex < currentTextFullString.length) {
+        timeoutRef.current = setTimeout(() => {
+          setCurrentText(currentTextFullString.substring(0, charIndex + 1));
+          setCharIndex(charIndex + 1);
         }, typingSpeed);
-        
-        return () => clearTimeout(timeout);
       } else {
-        // Finished typing, wait before deleting
-        const timeout = setTimeout(() => {
+        // Finished typing forward
+        timeoutRef.current = setTimeout(() => {
           setIsTyping(false);
         }, delayBetweenTexts);
-        
-        return () => clearTimeout(timeout);
       }
     } else {
-      // No need to delete for loading screen, just repeat the text
-      // Reset to start typing the next text
-      const timeout = setTimeout(() => {
-        setCurrentTextIndex((currentTextIndex + 1) % texts.length);
-        setCurrentText('');
+      // Backspacing
+      if (charIndex > 0) {
+        timeoutRef.current = setTimeout(() => {
+          setCurrentText(currentTextFullString.substring(0, charIndex - 1));
+          setCharIndex(charIndex - 1);
+        }, typingSpeed / 2);
+      } else {
+        // Finished backspacing
         setIsTyping(true);
-      }, typingSpeed * 2);
-      
-      return () => clearTimeout(timeout);
+        setTextIndex((textIndex + 1) % texts.length);
+      }
     }
-  }, [currentText, currentTextIndex, delayBetweenTexts, isTyping, texts, typingSpeed]);
-  
+    
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [charIndex, delayBetweenTexts, isTyping, textIndex, texts, typingSpeed]);
+
   return (
-    <span className={className}>
-      {currentText}
-      <span className="ml-0.5 h-5 w-[2px] bg-current inline-block animate-blink"></span>
-    </span>
+    <div className={`flex items-center ${className}`}>
+      <span>{currentText}</span>
+      <span className="ml-1 h-4 w-1 bg-current inline-block animate-blink"></span>
+    </div>
   );
 };
 

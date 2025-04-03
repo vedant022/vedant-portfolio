@@ -21,7 +21,7 @@ const Hero = () => {
   useEffect(() => {
     if (typedElementRef.current) {
       typedInstanceRef.current = new Typed(typedElementRef.current, {
-        strings: ["Flutter Developer", "Web Developer"],
+        strings: ["Android/Kotlin Developer", "Web Developer"],
         typeSpeed: 100,
         backSpeed: 50,
         backDelay: 1500,
@@ -66,9 +66,9 @@ const Hero = () => {
           </h1>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-semibold mt-2 md:mt-4 animate-fade-in dark:text-white flex flex-wrap items-center">
             <span>a passionate</span>
-            <span className="mx-4 inline-flex items-center">
+            <span className="mx-6 inline-flex items-center">
               <span ref={typedElementRef} className="ml-2"></span>
-              <span className="ml-1 h-8 w-[3px] bg-current inline-block animate-blink"></span>
+              <span className="ml-1 h-10 w-[4px] bg-current inline-block animate-blink"></span>
             </span>
           </h2>
           
