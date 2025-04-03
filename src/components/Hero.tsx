@@ -32,7 +32,7 @@ const Hero = () => {
           // Add appropriate class based on which string is currently typed
           if (typedElementRef.current) {
             if (arrayPos === 0) {
-              typedElementRef.current.className = 'text-gradient-purple';
+              typedElementRef.current.className = 'text-gradient-purple text-[90%]';
             } else {
               typedElementRef.current.className = 'text-gradient-blue';
             }
@@ -68,7 +68,7 @@ const Hero = () => {
             <span>a passionate</span>
             <span className="mx-6 inline-flex items-center">
               <span ref={typedElementRef} className="ml-2"></span>
-              <span className="ml-1 h-10 w-[4px] bg-current inline-block animate-blink"></span>
+              <span className="ml-1 h-10 w-[9px] bg-current inline-block animate-blink"></span>
             </span>
           </h2>
           
