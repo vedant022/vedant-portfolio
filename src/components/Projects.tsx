@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github } from 'lucide-react';
@@ -18,22 +17,6 @@ const Projects = () => {
       description: 'An elegant showcase website for a high-end marble retailer featuring product catalogs, virtual showroom, and custom quote builder.',
       image: 'https://images.unsplash.com/photo-1618221118493-9cfa1a1c00da?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
       tags: ['React', 'GSAP', 'Framer Motion', 'Firebase'],
-      demoUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      title: 'Mental Health Support App landing page',
-      description: 'The landing page for a mobile application that provides emergency notifications and mental health resources to users in need.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['Flutter', 'Firebase', 'Notifications API'],
-      demoUrl: '#',
-      githubUrl: '#'
-    },
-    {
-      title: 'E-Commerce Dashboard',
-      description: 'An interactive dashboard for managing products, orders, and customers in an e-commerce platform.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      tags: ['React', 'Tailwind CSS', 'Chart.js'],
       demoUrl: '#',
       githubUrl: '#'
     },
